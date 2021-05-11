@@ -1,0 +1,29 @@
+# -*- coding: utf-8 -*-
+from detectron2.config import CfgNode as CN
+
+
+def add_config(cfg):
+    """
+    Add config for EOPSN
+    """
+    cfg.MODEL.EOPSN = CN()
+    cfg.MODEL.EOPSN.NUM_CENTROID = 0
+    cfg.MODEL.EOPSN.CLUSTERING_INTERVAL = 200
+
+    cfg.DATASETS.UNSEEN_LABEL_SET = ''
+    cfg.MODEL.EOPSN.PREDICTOR = "baseline"
+    cfg.MODEL.EOPSN.UNLABELED_REGION = False
+    cfg.MODEL.EOPSN.IGNORE_UNLABELED_REGION = False
+    cfg.MODEL.EOPSN.SEM_SEG_UNLABELED_REGION = False
+
+
+    cfg.MODEL.EOPSN.N_SAMPLE = 20
+    cfg.MODEL.EOPSN.NMS_THRESH = 0.3
+    cfg.MODEL.EOPSN.CLUSTER_OBJ_THRESH = 0.9
+    cfg.MODEL.EOPSN.COS_THRESH = 0.15
+    cfg.MODEL.EOPSN.COUPLED_COS_THRESH = 0.15
+    cfg.MODEL.EOPSN.COUPLED_OBJ_THRESH = 0.9
+
+
+    cfg.SOLVER.OPTIMIZER = "ADAMW"
+    cfg.SOLVER.BACKBONE_MULTIPLIER = 0.1

@@ -1,0 +1,35 @@
+_BASE_: "Base-Panoptic-FPN.yaml"
+MODEL:
+  WEIGHTS: "detectron2://ImageNetPretrained/MSRA/R-50.pkl"
+  META_ARCHITECTURE: "PanopticFPN_baseline"
+  RESNETS:
+    DEPTH: 50
+  ROI_MASK_HEAD:
+      NAME: "MaskRCNNConvUpsampleHead_baseline"
+      CLS_AGNOSTIC_MASK: True
+  ROI_BOX_HEAD:
+      NAME: "FastRCNNConvFCHead"
+      CLS_AGNOSTIC_BBOX_REG: True
+  ROI_HEADS:
+      NAME: "StandardROIHeads_baseline"
+  RPN:
+   HEAD_NAME: "StandardRPNHead_baseline"
+  SEM_SEG_HEAD:
+   NAME: "SemSegFPNHead_baseline"
+  PROPOSAL_GENERATOR:
+   NAME: "RPN_baseline"
+  EOPSN:
+   UNLABELED_REGION: True
+   IGNORE_UNLABELED_REGION: False
+   SEM_SEG_UNLABELED_REGION: True
+SOLVER:
+  IMS_PER_BATCH: 32
+  STEPS: (30000, 40000)
+  MAX_ITER: 45000
+  BASE_LR: 0.04
+SEED:  13
+DATASETS:
+  TRAIN: ("coco_2017_train_panoptic_separated",)
+  TEST: ("coco_2017_val_panoptic_separated",)
+  UNSEEN_LABEL_SET: 'datasets/unknown/unknown_K20.txt'
+OUTPUT_DIR: ./baseline_K20

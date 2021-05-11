@@ -1,0 +1,49 @@
+_BASE_: "Base-Panoptic-FPN.yaml"
+MODEL:
+  META_ARCHITECTURE: "EOPSN"
+  WEIGHTS: "detectron2://ImageNetPretrained/MSRA/R-50.pkl"
+#  WEIGHTS: "checkpoints/suppression_K20.pth"
+  RESNETS:
+    DEPTH: 50
+  ROI_MASK_HEAD:
+   NAME: "MaskRCNNConvUpsampleHead_baseline"
+   CLS_AGNOSTIC_MASK: True
+  ROI_BOX_HEAD:
+   NAME: "FastRCNNConvFCHead_baseline"
+   CLS_AGNOSTIC_BBOX_REG: True
+  ROI_HEADS:
+    NAME: "StandardROIHeads_EOPSN"
+  SEM_SEG_HEAD:
+   NAME: "SemSegFPNHead_baseline"
+  RPN:
+   HEAD_NAME: "StandardRPNHead_baseline"
+  PROPOSAL_GENERATOR:
+   NAME: "RPN_baseline"
+  EOPSN:
+   NUM_CENTROID: 128
+   CLUSTERING_INTERVAL: 200
+   UNLABELED_REGION: True
+   IGNORE_UNLABELED_REGION: True
+   SEM_SEG_UNLABELED_REGION: True
+   PREDICTOR: 'eopsn'
+   N_SAMPLE: 20
+   NMS_THRESH: 0.0000001
+   CLUSTER_OBJ_THRESH: 0.90
+   COUPLED_OBJ_THRESH: 0.95
+   COUPLED_COS_THRESH: 0.15
+DATASETS:
+  TRAIN: ("coco_2017_train_panoptic_separated",)
+  TEST: ("coco_2017_val_panoptic_separated",)
+  UNSEEN_LABEL_SET: 'datasets/unknown/unknown_K20.txt'
+SOLVER:
+  IMS_PER_BATCH: 32
+  STEPS: (60000, 80000) # large number
+  MAX_ITER: 30000
+  BASE_LR: 0.0004
+DATALOADER:
+  FILTER_EMPTY_ANNOTATIONS: False
+  NUM_WORKERS:  4
+SEED:  13
+TEST:
+  EVAL_PERIOD: 0
+OUTPUT_DIR:  ./EOPSN_K20

@@ -1,0 +1,8 @@
+car
+boat
+cow
+tie
+pizza
+zebra
+toilet
+stop sign

@@ -1,0 +1,14 @@
+cython
+submitit
+scipy
+rich
+opencv-python==4.3.0.36
+numpy==1.18.0
+shapely
+pandas
+wandb
+seaborn
+sklearn
+Embeddings2Image
+git+https://github.com/cocodataset/cocoapi.git#subdirectory=PythonAPI&egg=pycocotools
+git+https://github.com/cocodataset/panopticapi.git#egg=panopticapi
