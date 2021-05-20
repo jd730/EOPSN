@@ -51,7 +51,7 @@ To convert closed-set panoptic segmentation to open-set panoptic segmentation, r
 python prepare_unknown.py
 ```
 
-The default setting is K=20, you can change [here](https://github.com/jd730/EOPSN/blob/1a5812c30a42636d123accc5564908d27b2e2d4b/prepare_unknown.py#L94).
+The default setting is K=20, you can change [here](https://github.com/jd730/EOPSN/blob/master/prepare_unknown.py#L94).
 
 
 ## Training
