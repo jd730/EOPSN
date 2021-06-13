@@ -74,7 +74,8 @@ def do_nms(proposals, image_path, flips=None, nms_thresh=0.1, size_opt='lm'):
         nonzero_ind = nonzero_ind[keep]
         idx.append(l + nonzero_ind)
         l  = len(x)
-        paths.append(torch.ones((l), device=logits.device)*path)
+        boxes = boxes[keep]
+        paths.append(torch.ones((len(keep)), device=logits.device)*path)
         boxes = boxes.div(torch.as_tensor([[W, H, W, H]], device=boxes.device))
         if flips[i] == 1:
             boxes[:,0] = 1-boxes[:,0]
