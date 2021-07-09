@@ -1,8 +1,8 @@
 _BASE_: "Base-Panoptic-FPN.yaml"
 MODEL:
   META_ARCHITECTURE: "EOPSN"
-  WEIGHTS: "detectron2://ImageNetPretrained/MSRA/R-50.pkl"
-#  WEIGHTS: "checkpoints/suppression_K20.pth"
+#  WEIGHTS: "detectron2://ImageNetPretrained/MSRA/R-50.pkl"
+  WEIGHTS: "checkpoints/suppression_K20.pth"
   RESNETS:
     DEPTH: 50
   ROI_MASK_HEAD:
