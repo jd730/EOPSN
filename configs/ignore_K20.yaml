@@ -1,7 +1,6 @@
 _BASE_: "Base-Panoptic-FPN.yaml"
 MODEL:
-  WEIGHTS: "/home/jahwang/R-50.pkl"
- #  WEIGHTS: "detectron2://ImageNetPretrained/MSRA/R-50.pkl"
+  WEIGHTS: "detectron2://ImageNetPretrained/MSRA/R-50.pkl"
   META_ARCHITECTURE: "PanopticFPN_baseline"
   RESNETS:
     DEPTH: 50
