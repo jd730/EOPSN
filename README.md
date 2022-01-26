@@ -1,6 +1,6 @@
 **EOPSN: Exemplar-Based Open-Set Panoptic Segmentation Network (CVPR 2021)**
 ========
-PyTorch implementation for **EOPSN**.
+Official PyTorch implementation for **[EOPSN](https://openaccess.thecvf.com/content/CVPR2021/html/Hwang_Exemplar-Based_Open-Set_Panoptic_Segmentation_Network_CVPR_2021_paper.html)**.
 
 We propose open-set panoptic segmentation task and propose a new baseline called EOPSN.
 The code is based on [Detectron2](https://github.com/facebookresearch/detectron2)
