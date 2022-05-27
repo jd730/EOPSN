@@ -61,7 +61,7 @@ python train_net.py --config configs/EOPSN_K20.yaml --num-gpus 8
 ```
 
 Note that it requires pre-trained models (<i>Void-suppression</i>).
-Please download from [Goolge Drive](https://drive.google.com/drive/folders/1Df_gXUnVwi6Y2EuR7PAzWSoghpSikYHb?usp=sharing).
+Please download from [Goolge Drive](https://drive.google.com/drive/folders/0Bx1p2kGSZijffno4eG1zWXFNbVpqUTJISVJSaDVZX2psR0pYQ3R4akZCaEZpX3BQVTNZMnc?resourcekey=0-69Rk3PxibLzMhqSXV4LYLA&usp=sharing).
 
 
 To train baseline (train) on a single node with 8 gpus for 45,000 iterations run:
